@@ -13,7 +13,7 @@ client_socket.connect((HOST, PORT))
 # 10번의 루프로 send receive를 한다.
 for i in range(1, 10):
     # 메시지는 hello로 보낸다.
-    msg = 'hello'
+    msg = 'hello1'
     # 메시지를 바이너리(byte)형식으로 변환한다.
     data = msg.encode()
     # 메시지 길이를 구한다.
