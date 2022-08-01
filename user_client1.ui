@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>1071</width>
-    <height>647</height>
+    <height>650</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,7 +35,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.229268 rgba(0, 134, 0, 255), stop:1 rgba(255, 255, 255, 255));</string>
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.142, y1:0.102273, x2:0.961, y2:0.966, stop:0 rgba(64, 209, 181, 255), stop:1 rgba(125, 104, 209, 255));</string>
     </property>
     <property name="currentIndex">
      <number>0</number>
@@ -94,19 +94,6 @@ color: rgb(255, 255, 255);
        <string>ID :</string>
       </property>
      </widget>
-     <widget class="QTextEdit" name="id">
-      <property name="geometry">
-       <rect>
-        <x>370</x>
-        <y>270</y>
-        <width>371</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
@@ -134,19 +121,6 @@ color: rgb(255, 255, 255);</string>
        <string>PW :</string>
       </property>
      </widget>
-     <widget class="QTextEdit" name="pw">
-      <property name="geometry">
-       <rect>
-        <x>370</x>
-        <y>340</y>
-        <width>371</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
@@ -166,7 +140,7 @@ color: rgb(255, 255, 255);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border-radius:20px;
-background-color: rgb(249, 255, 180);</string>
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
        <string>LOGIN</string>
@@ -191,10 +165,36 @@ background-color: rgb(249, 255, 180);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border-radius:20px;
-background-color: rgb(249, 255, 180);</string>
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
        <string>SIGN UP</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="id">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>270</y>
+        <width>371</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="pw">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>340</y>
+        <width>371</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
      </widget>
     </widget>
@@ -222,26 +222,6 @@ color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
        <string>SIGN UP</string>
-      </property>
-     </widget>
-     <widget class="QTextEdit" name="member_id">
-      <property name="geometry">
-       <rect>
-        <x>380</x>
-        <y>300</y>
-        <width>341</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="html">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Gulim'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_5">
@@ -294,26 +274,6 @@ color: rgb(255, 255, 255);</string>
        <string>PW : </string>
       </property>
      </widget>
-     <widget class="QTextEdit" name="member_pw">
-      <property name="geometry">
-       <rect>
-        <x>380</x>
-        <y>360</y>
-        <width>341</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="html">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Gulim'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_3">
       <property name="geometry">
        <rect>
@@ -333,7 +293,7 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="styleSheet">
        <string notr="true">border-radius:20px;
-background-color: rgb(249, 255, 180);</string>
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
        <string>ID CHECK</string>
@@ -358,30 +318,10 @@ background-color: rgb(249, 255, 180);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border-radius:20px;
-background-color: rgb(249, 255, 180);</string>
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
        <string>SIGN IN</string>
-      </property>
-     </widget>
-     <widget class="QTextEdit" name="member_name">
-      <property name="geometry">
-       <rect>
-        <x>380</x>
-        <y>170</y>
-        <width>341</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="html">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Gulim'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_7">
@@ -457,26 +397,6 @@ color: rgb(255, 255, 255);</string>
        <string>gender :</string>
       </property>
      </widget>
-     <widget class="QTextEdit" name="member_number">
-      <property name="geometry">
-       <rect>
-        <x>380</x>
-        <y>430</y>
-        <width>341</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="html">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Gulim'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
@@ -521,10 +441,62 @@ color: rgb(255, 255, 255);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border-radius:20px;
-background-color: rgb(249, 255, 180);</string>
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
        <string>BACK</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="member_name">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>170</y>
+        <width>341</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="member_id">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>300</y>
+        <width>341</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="member_pw">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>360</y>
+        <width>341</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="member_number">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>430</y>
+        <width>341</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
      </widget>
     </widget>
@@ -576,7 +548,7 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="styleSheet">
        <string notr="true">border-radius:20px;
-background-color: rgb(249, 255, 180);</string>
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
        <string>home</string>
@@ -601,7 +573,7 @@ background-color: rgb(249, 255, 180);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border-radius:20px;
-background-color: rgb(198, 198, 198);</string>
+background-color: qlineargradient(spread:pad, x1:0.2, y1:0.130682, x2:1, y2:1, stop:0 rgba(209, 107, 165, 255), stop:1 rgba(255, 234, 234, 255));</string>
       </property>
       <property name="text">
        <string>실시간 자세교정</string>
@@ -626,7 +598,7 @@ background-color: rgb(198, 198, 198);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border-radius:20px;
-background-color: rgb(198, 198, 198);</string>
+background-color: qlineargradient(spread:pad, x1:0.2, y1:0.130682, x2:1, y2:1, stop:0 rgba(209, 107, 165, 255), stop:1 rgba(255, 234, 234, 255));</string>
       </property>
       <property name="text">
        <string>오늘의 운동</string>
@@ -678,7 +650,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:1 rgb
       </property>
       <property name="styleSheet">
        <string notr="true">border-radius:20px;
-background-color: rgb(249, 255, 180);</string>
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
        <string>checking</string>
@@ -703,7 +675,7 @@ background-color: rgb(249, 255, 180);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border-radius:20px;
-background-color: rgb(249, 255, 180);</string>
+background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
        <string>back</string>

@@ -1,41 +1,36 @@
 import sys
 import threading
-
-from PyQt5.QtWidgets import *
-from PyQt5 import uic
 import socket
 import cv2
 import tensorflow
 import keras
-from PIL import Image, ImageOps
 import numpy as np
 import playsound
 import time
-import PyQt5
-from PyQt5.QtCore import *
-from PyQt5 import QtWidgets
-from PyQt5 import QtGui
-from PyQt5 import QtCore
+from PyQt5 import uic
+from PyQt5.QtWidgets import *
 
 #UI파일 연결
 #단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
 form_class = uic.loadUiType("user_client1.ui")[0]
 
 #화면을 띄우는데 사용되는 Class 선언
-class WindowClass(QMainWindow, form_class) :
-    def __init__(self) :
+class WindowClass(QMainWindow, form_class):
+    def __init__(self):
         super().__init__()
         self.setupUi(self)
 
         # 소켓생성
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # 서버 주소 입력
-        self.ip =''
-        self.port =1560
-        # self.sock.connect((self.ip, self.port))
+        self.ip ='localhost'
+        self.port = 9999
+        self.sock.connect((self.ip, self.port))
         # 확인용
-        # print("서버와 연결완료")
+        print("서버와 연결완료")
 
+        #ui 사이즈 고정
+        self.setFixedSize(1071, 650)
 
         #기본 화면전화 코드
         self.pushButton_2.clicked.connect(lambda : self.stackedWidget.setCurrentIndex(1))   #회원가입 창 이동
@@ -48,22 +43,27 @@ class WindowClass(QMainWindow, form_class) :
         self.pushButton_4.clicked.connect(self.member_join)     #회원가입 시도시
         self.pushButton_9.clicked.connect(self.exercise)       #오늘의 운동
         self.pushButton_11.clicked.connect(self.pose_reform)  # 실시간 자세교정으로 이동
-        # self.stackedWidget.setCurrentIndex(2)
+        # self.stackedWidget.setCurrentIndex(3)
+
 # 로그인
     def login(self):
-        if not self.id.text() or self.pw.text():
-            QMessageBox.warning(self, '입력 누락', 'ID또는PW을 입력하셔야 합니다')         ######아이디 또는 비법 입력이 누락 되었을 시 경고창
+        print('로그인 버튼 클릭 가능')
+        if not self.id.text() or not self.pw.text():
+            QMessageBox.warning(self, '입력 누락', '모든 정보를 입력해야 합니다')
         else:
             #서버에 아이디 로그인 일치 여부 확인
             self.sock.send(f'login_check/{self.id.text()}/{self.pw.text()}'.encode())   #######로그인시 구분자 / (login_check, 아이디, 비번)
+            print('전송 완료')
             #일치 시
             while True:
-                rec = self.sock.recv(20).decode()
+                rec = self.sock.recv(1024).decode()
                 if rec == 'login_check_ok':
                     # 로그인 성공시
+                    QMessageBox.about(self, '로그인 완료', '로그인이 완료되었습니다.')
                     self.id.clear()
                     self.pw.clear()
                     self.stackedWidget.setCurrentIndex(2)
+                    break
                 else:
                     # 로그인 실패시
                     QMessageBox.warning(self, '로그인 실패', 'ID와 PW를 다시 확인해 주세요')
@@ -73,30 +73,27 @@ class WindowClass(QMainWindow, form_class) :
 
 # 회원가입
     def member_join(self):
-        self.member_gender.setCurrentText('선택')
-        if not self.member_name.text() or self.member_gender.text() or self.member_id.text() or self.member_pw.text() or self.member_number():
+        if not self.member_name.text() or not self.member_id.text() or not self.member_pw.text() or not self.member_number.text():
             QMessageBox.warning(self, '입력 누락', '회원 가입 정보를 모두 기재하셔야합니다.')
             self.member_name.clear()
-            self.member_gender.setCurrentText('선택')
             self.member_id.clear()
             self.member_pw.clear()
             self.member_number.clear()
         else:
-            self.sock.send(f'member_join/{self.member_name.text()}/{self.member_gender.CurrentText()}/{self.member_id.text()}/{self.member_pw.text()}/{self.member_number.text()}'.encode())
+            self.sock.send(f'member_join/{self.member_name.text()}/{self.member_gender.currentText()}/{self.member_id.text()}/{self.member_pw.text()}/{self.member_number.text()}'.encode())
             while True:
-                rec = self.sock.recv(20).decode()
+                rec = self.sock.recv(1024).decode()
                 if rec == 'member_join_ok':
                     QMessageBox.about(self, '회원가입 완료', '회원가입이 완료되었습니다.')
                     self.member_name.clear()
-                    self.member_gender.setCurrentText('선택')
                     self.member_id.clear()
                     self.member_pw.clear()
                     self.member_number.clear()
                     self.stackedWidget.setCurrentIndex(0)
+                    break
                 else:
                     QMessageBox.warning(self, '회원가입 실패', '중복되는 ID를 사용하였습니다.')
                     self.member_name.clear()
-                    self.member_gender.setCurrentText('선택')
                     self.member_id.clear()
                     self.member_pw.clear()
                     self.member_number.clear()
@@ -109,13 +106,13 @@ class WindowClass(QMainWindow, form_class) :
         else:
             self.sock.send(f'id_check/{self.member_id.text()}'.encode())
             while True:
-                rec = self.sock.recv(20).decode()
+                rec = self.sock.recv(1024).decode()
                 if rec == 'id_ok':
                     QMessageBox.about(self, '사용 가능 ID', '사용이 가능한 ID입니다')
                     break
                 else:
                     QMessageBox.warning(self, '사용 불가 ID', '이미 존재하는 ID입니다.')
-                    self.textEdit.clear()
+                    self.member_id.clear()
                     break
 
 # 실시간 자세 교정
@@ -185,6 +182,7 @@ class WindowClass(QMainWindow, form_class) :
                         # 오자세 유지시 알림음
                         print("거북이 됩니다 그러다")
                         sound_notice()
+                        self.sock.send('1'.encode())
                         # 계속 반복되게 안하려면 아래 주석 해제
                         # break
                 except:
@@ -202,15 +200,14 @@ class WindowClass(QMainWindow, form_class) :
 
 # 오늘의 운동
     def exercise(self):
-        rec = self.sock.recv(1024)
-        self.sock.sed('get_excer'.encode())
+        self.sock.send('get_excer'.encode())
         while True:
-            rec = self.sock.recv(1024).decode()
+            rec = self.sock.recv(8192).decode()
             self.textBrowser.append(f'{rec}')
             break
 
 
-if __name__ == "__main__" :
+if __name__ == "__main__":
     #QApplication : 프로그램을 실행시켜주는 클래스
     app = QApplication(sys.argv)
     #WindowClass의 인스턴스 생성
